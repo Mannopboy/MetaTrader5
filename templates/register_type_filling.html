@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>type_filling Ro'yxatdan O'tkazish</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="../static/reg_type_filling.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Yangi type_filling Ro'yxatdan O'tkazish</h2>
+        <form method="POST">
+            <label for="name">type_filling Nomi:</label>
+            <input type="text" name="name" required>
+
+            <button type="submit">Ro'yxatdan O'tkazish</button>
+        </form>
+    </div>
+</body>
+</html>

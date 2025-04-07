@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trades History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #d1e7fd;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Trades History</h2>
+    <h2>Balance: {{ balance }}</h2>
+    <table>
+        <tr>
+            <th>Ticket</th>
+            <th>Symbol</th>
+            <th>Price</th>
+            <th>Volume</th>
+            <th>Profit</th>
+            <th>Commission</th>
+            <th>Comment</th>
+            <th>Time (ms)</th>
+        </tr>
+        {% for trade in trades %}
+            <tr>
+                <td>{{ trade.ticket }}</td>
+                <td>{{ trade.symbol }}</td>
+                <td>{{ trade.price }}</td>
+                <td>{{ trade.volume }}</td>
+                <td>{{ trade.profit }}</td>
+                <td>{{ trade.commission }}</td>
+                <td>{{ trade.comment }}</td>
+                <td>{{ trade.time_msc }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>

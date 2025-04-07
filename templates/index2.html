@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MT5 Savdo Platformasi</title>
+</head>
+<body>
+<h1>MT5 Savdo Platformasi</h1>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul>
+            {% for category, message in messages %}
+                <li style="color: {{ 'red' if category == 'error' else 'green' }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<form method="POST">
+    <label for="account">Hisob Raqami:</label><br>
+    <input type="text" id="account" name="account" required><br><br>
+
+    <label for="password">Parol:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <label for="server">Server:</label><br>
+    <input type="text" id="server" name="server" value="Exness-MT5Trial" required><br><br>
+
+    <label for="symbol">Valyuta Juftligi:</label><br>
+    <select id="symbol" name="symbol" required>
+        {% for symbol in symbols %}
+            <option value="{{ symbol }}">{{ symbol }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="order_type">Savdo Turi:</label><br>
+    <select id="order_type" name="order_type" required>
+        <option value="BUY">BUY</option>
+        <option value="SELL">SELL</option>
+    </select><br><br>
+
+    <label for="lot_size">Lot Hajmi:</label><br>
+    <input type="number" id="lot_size" name="lot_size" step="0.01" value="0.1" required><br><br>
+
+    <label for="tp_price">Take Profit:</label><br>
+    <input type="number" id="tp_price" name="tp_price" step="0.0001" required><br><br>
+
+    <label for="sl_price">Stop Loss:</label><br>
+    <input type="number" id="sl_price" name="sl_price" step="0.0001" required><br><br>
+
+    <button type="submit">Buyurtmani Yuborish</button>
+</form>
+</body>
+</html>

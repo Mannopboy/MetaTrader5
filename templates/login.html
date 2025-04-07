@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="../static/login.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Tizimga kirish</h2>
+        <form class="menu" method="POST">
+            <label for="username">Foydalanuvchi nomi:</label>
+            <input type="text" name="username" required>
+
+            <label for="password">Parol:</label>
+            <input type="password" name="password" required>
+
+            <button type="submit">Kirish</button>
+        </form>
+        <p>Hisobingiz yo'qmi? <a href="{{ url_for('register') }}">Ro'yxatdan o'tish</a></p>
+    </div>
+</body>
+</html>
